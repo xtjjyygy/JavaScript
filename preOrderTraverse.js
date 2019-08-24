@@ -60,3 +60,45 @@ node.map(function(item) {
 root = binaryTree.root
 
 console.log(binaryTree.preOrderTraverse(root))
+
+
+#nums insert
+class TreeNode {
+    constructor(val) {
+        this.val = val;
+        this.left =null;
+        this.right = null;
+    }
+}
+
+class binaryTree {
+    constructor() {
+        this.result = [];
+    }
+    createTree(nums) {
+        if (nums.length == 0) {
+            return null;
+        }
+        var mid = Math.floor(nums.length/2);
+        var BT = new TreeNode(nums[mid])
+        BT.left = this.createTree(nums.slice(0,mid))
+        BT.right = this.createTree(nums.slice(mid+1,))
+        return BT
+    }
+    preTraversTree(root) {
+        if (!root) {
+            return []
+        }
+        this.preTraversTree(root.left)
+        this.result.push(root.val)
+        this.preTraversTree(root.right)
+        return this.result
+    }
+}
+
+var nums = [1,2,3,4,5,6];
+var bTree = new binaryTree();
+root = bTree.createTree(nums)
+console.log(root)
+
+console.log(bTree.preTraversTree(root))
