@@ -36,3 +36,7 @@ myPromise.prototype.then=function(onFullfilled,onRejected){
        default:       
     }
  }
+
+var p=new myPromise(function(resolve,reject){resolve(1)});
+p.then(function(x){console.log(x)})
+//输出1
