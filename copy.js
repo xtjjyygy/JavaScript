@@ -1,6 +1,6 @@
 //deepCopy
 
-1，循环+递归
+//1，循环+递归
 
 function deepClone(obj){
     let objClone = Array.isArray(obj)?[]:{};
@@ -44,3 +44,8 @@ let a=[0,1,[2,3],4],
 a[0]=1;
 a[2][0]=1;
 console.log(a,b);
+
+//浅拷贝
+//1，对于引用数据类型，直接赋值；
+
+//2，采用ES6中的Object.assign()
